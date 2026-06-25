@@ -1,486 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CKS Documents & Xerox | Premium</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --gold: #c8a24a;
+        --gold2: #e0c16d;
+        --dark: #111;
+        --cream: #faf7f2;
+        --white: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: Outfit, sans-serif;
+        background: var(--cream);
+        color: #333;
+        line-height: 1.7;
+      }
+      .container {
+        width: min(92%, 1200px);
+        margin: auto;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(17, 17, 17, 0.7);
+        backdrop-filter: blur(10px);
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+      }
+      .logo {
+        font:
+          800 30px "Playfair Display",
+          serif;
+        color: var(--gold2);
+        text-decoration: none;
+      }
+      .menu a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 28px;
+      }
+      .menu a:hover {
+        color: var(--gold2);
+      }
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 20px;
+        background:
+          linear-gradient(rgba(17, 17, 17, 0.82), rgba(17, 17, 17, 0.82)),
+          url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1800&q=80")
+            center/cover;
+      }
+      .glass {
+        max-width: 900px;
+        text-align: center;
+        padding: 60px;
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      h1,
+      h2 {
+        font-family: "Playfair Display", serif;
+      }
+      .hero h1 {
+        font-size: 58px;
+        color: #fff;
+      }
+      .hero p {
+        color: #ddd;
+        margin: 25px 0;
+      }
+      .btn {
+        display: inline-block;
+        padding: 14px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 8px;
+      }
+      .gold {
+        background: var(--gold);
+        color: #111;
+      }
+      .dark {
+        background: #222;
+        color: #fff;
+      }
+      section {
+        padding: 90px 0;
+      }
+      .title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .title h2 {
+        color: #111;
+      }
+      .title h2:after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 4px;
+        background: var(--gold);
+        margin: 14px auto;
+        border-radius: 5px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+      }
+      .card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 22px;
+        border: 1px solid #eee;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-8px);
+        border-color: var(--gold);
+      }
+      .icon {
+        font-size: 42px;
+        color: var(--gold);
+        margin-bottom: 15px;
+      }
+      .stats {
+        background: #111;
+        color: #fff;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat h3 {
+        font-size: 48px;
+        color: var(--gold2);
+      }
+      .contact {
+        background: #111;
+        color: #fff;
+      }
+      .contactbox {
+        background: #1b1b1b;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+      }
+      .contactbox a {
+        color: var(--gold2);
+      }
+      iframe {
+        width: 100%;
+        height: 350px;
+        border: 0;
+        border-radius: 15px;
+        margin-top: 20px;
+      }
+      footer {
+        background: #000;
+        color: #999;
+        text-align: center;
+        padding: 20px;
+      }
+      .float {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 28px;
+      }
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 38px;
+        }
+        .menu {
+          display: none;
+        }
+        .glass {
+          padding: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav">
+        <a class="logo" href="#">CKS</a>
+        <div class="menu">
+          <a href="#about">About</a><a href="#services">Services</a
+          ><a href="#contact">Contact</a>
+        </div>
+      </div>
+    </nav>
 
-<title>CKS Documents & Xerox | Stamp Paper, Registration Documents & Xerox Services</title>
-
-<meta name="description"
-      content="CKS Documents & Xerox provides Stamp Paper Documentation, Registration Document Writing, Affidavits, Xerox, Printing, Scanning, Tamil & English Typing Services.">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#f5f7fb;
-    color:#333;
-    line-height:1.7;
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-/* HERO */
-.hero{
-    min-height:100vh;
-    background:
-    linear-gradient(rgba(0,35,90,.75),rgba(0,60,150,.75)),
-    url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-}
-
-.hero-content{
-    max-width:900px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(12px);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:24px;
-    padding:50px;
-}
-
-.hero h1{
-    font-size:4rem;
-    margin-bottom:15px;
-    font-weight:800;
-}
-
-.hero p{
-    font-size:1.2rem;
-    margin-bottom:30px;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    text-decoration:none;
-    padding:14px 30px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:#fff;
-    color:#0056b3;
-}
-
-.btn-secondary{
-    background:#25D366;
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-/* SECTION */
-.section{
-    padding:90px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:2.5rem;
-    color:#003366;
-}
-
-.section-title p{
-    color:#666;
-}
-
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:white;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 35px rgba(0,0,0,.12);
-}
-
-.icon{
-    font-size:45px;
-    margin-bottom:15px;
-}
-
-.card h3{
-    color:#0056b3;
-    margin-bottom:15px;
-}
-
-.card ul{
-    padding-left:18px;
-}
-
-/* STATS */
-.stats{
-    background:linear-gradient(135deg,#0056b3,#0088ff);
-    color:white;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    text-align:center;
-}
-
-.stat h3{
-    font-size:3rem;
-}
-
-.stat p{
-    font-size:1.1rem;
-}
-
-/* WHY */
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.feature{
-    background:white;
-    border-radius:18px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-/* CONTACT */
-.contact{
-    background:#0d1b2a;
-    color:white;
-}
-
-.contact-card{
-    max-width:800px;
-    margin:auto;
-    text-align:center;
-    background:rgba(255,255,255,.08);
-    padding:40px;
-    border-radius:25px;
-    backdrop-filter:blur(10px);
-}
-
-.contact-card h2{
-    margin-bottom:20px;
-}
-
-.contact-card p{
-    margin:10px 0;
-}
-
-.contact-card a{
-    color:#6dc8ff;
-    text-decoration:none;
-}
-
-.map{
-    margin-top:25px;
-    overflow:hidden;
-    border-radius:20px;
-}
-
-.map iframe{
-    width:100%;
-    height:400px;
-    border:0;
-}
-
-/* FOOTER */
-.footer{
-    background:#000;
-    color:#aaa;
-    text-align:center;
-    padding:20px;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:65px;
-    height:65px;
-    background:#25D366;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-decoration:none;
-    color:white;
-    font-size:28px;
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
-    z-index:999;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.4rem;
-}
-
-.hero-content{
-    padding:30px;
-}
-
-.section-title h2{
-    font-size:2rem;
-}
-}
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
-
+    <section class="hero">
+      <div class="glass">
         <h1>CKS Documents & Xerox</h1>
-
         <p>
-            Trusted Documentation Services Since 1980
-            <br>
-            Stamp Paper • Registration Documents • Affidavits • Xerox • Printing • Tamil & English Typing
+          Trusted Documentation Services Since 1980<br />Stamp Paper •
+          Registration Documents • Affidavits • Xerox • Printing • Tamil &
+          English Typing
         </p>
+        <a
+          class="btn gold"
+          href="https://maps.app.goo.gl/93U7apb4Ng3BZ79z9"
+          target="_blank"
+          ><i class="fa-solid fa-location-dot"></i> View Location</a
+        >
+        <a class="btn dark" href="https://wa.me/919443283859" target="_blank"
+          ><i class="fa-brands fa-whatsapp"></i> WhatsApp</a
+        >
+      </div>
+    </section>
 
-        <div class="hero-buttons">
+    <section id="about">
+      <div class="container">
+        <div class="title"><h2>About Us</h2></div>
+        <p style="text-align: center; max-width: 900px; margin: auto">
+          CKS Documents & Xerox provides professional stamp paper documentation,
+          registration document writing, affidavits, Xerox, printing, scanning
+          and Tamil & English typing with fast, accurate and affordable service.
+        </p>
+      </div>
+    </section>
 
-            <a href="https://maps.app.goo.gl/93U7apb4Ng3BZ79z9"
-               target="_blank"
-               class="btn btn-primary">
-               📍 View Location
-            </a>
+    <section id="services">
+      <div class="container">
+        <div class="title"><h2>Our Services</h2></div>
+        <div class="grid">
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-file-signature"></i></div>
+            <h3>Stamp Paper</h3>
+            <p>Affidavits, Rental Agreements, Legal Documents, Declarations.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <h3>Registration</h3>
+            <p>Sale Deed, Gift Deed, Settlement, Power of Attorney.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-keyboard"></i></div>
+            <h3>Typing</h3>
+            <p>Tamil & English typing, applications, resumes.</p>
+          </div>
+          <div class="card">
+            <div class="icon"><i class="fa-solid fa-print"></i></div>
+            <h3>Xerox & Printing</h3>
+            <p>Color/B&W Xerox, scanning, lamination, printouts.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <a href="https://wa.me/919443283859"
-               target="_blank"
-               class="btn btn-secondary">
-               💬 WhatsApp Us
-            </a>
-
+    <section class="section" id="why">
+      <div class="container">
+        <div class="title">
+          <h2>Why Choose CKS Documents & Xerox?</h2>
+          <p style="max-width: 700px; margin: 15px auto 0; color: #777">
+            We are committed to providing reliable, accurate, and hassle-free
+            documentation services with decades of experience.
+          </p>
         </div>
 
-    </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Our Services</h2>
-            <p>Professional document preparation and Xerox services</p>
-        </div>
-
-        <div class="services">
-
-            <div class="card">
-                <div class="icon">📜</div>
-                <h3>Stamp Paper Services</h3>
-                <ul>
-                    <li>Affidavits</li>
-                    <li>Rental Agreements</li>
-                    <li>Declarations</li>
-                    <li>Legal Documentation</li>
-                </ul>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-bolt"></i>
             </div>
 
-            <div class="card">
-                <div class="icon">✍️</div>
-                <h3>Registration Documents</h3>
-                <ul>
-                    <li>Sale Deeds</li>
-                    <li>Gift Deeds</li>
-                    <li>Settlement Deeds</li>
-                    <li>Power of Attorney</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="icon">⌨️</div>
-                <h3>Typing Services</h3>
-                <ul>
-                    <li>Tamil Typing</li>
-                    <li>English Typing</li>
-                    <li>Applications</li>
-                    <li>Resume Preparation</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <div class="icon">🖨️</div>
-                <h3>Xerox & Printing</h3>
-                <ul>
-                    <li>Black & White Xerox</li>
-                    <li>Color Xerox</li>
-                    <li>Scanning</li>
-                    <li>Printouts</li>
-                </ul>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- STATS -->
-<section class="section stats">
-    <div class="container">
-
-        <div class="stats-grid">
-
-            <div class="stat">
-                <h3>20+</h3>
-                <p>Years Experience</p>
-            </div>
-
-            <div class="stat">
-                <h3>5000+</h3>
-                <p>Documents Processed</p>
-            </div>
-
-            <div class="stat">
-                <h3>100%</h3>
-                <p>Customer Satisfaction</p>
-            </div>
-
-            <div class="stat">
-                <h3>Fast</h3>
-                <p>Service Delivery</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section class="section">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Why Choose Us?</h2>
-        </div>
-
-        <div class="features">
-
-            <div class="feature">
-                <h3>⚡ Fast Service</h3>
-                <p>Quick document preparation and delivery.</p>
-            </div>
-
-            <div class="feature">
-                <h3>💰 Affordable</h3>
-                <p>Reasonable pricing for all services.</p>
-            </div>
-
-            <div class="feature">
-                <h3>🎯 Accurate Work</h3>
-                <p>Professional and error-free documentation.</p>
-            </div>
-
-            <div class="feature">
-                <h3>🌐 Tamil & English</h3>
-                <p>Typing and drafting support in both languages.</p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section contact">
-    <div class="container">
-
-        <div class="contact-card">
-
-            <h2>Contact Us</h2>
+            <h3>Quick & Reliable Service</h3>
 
             <p>
-                Your trusted partner for Stamp Paper, Registration
-                Documents, Xerox, Printing and Typing Services.
+              Fast processing of stamp papers, registration documents,
+              affidavits, and Xerox services with minimal waiting time.
             </p>
+          </div>
 
-            <br>
-
-            <p>📞 <strong>+91 9443283859</strong></p>
-            <p>📧 ckskumar1962@gmail.com</p>
-
-            <p>
-                📍
-                <a href="https://maps.app.goo.gl/93U7apb4Ng3BZ79z9"
-                   target="_blank">
-                   Open Location in Google Maps
-                </a>
-            </p>
-
-            <div class="map">
-                <iframe
-                    src="https://www.google.com/maps?q=Tamil%20Nadu&output=embed"
-                    loading="lazy">
-                </iframe>
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-building-columns"></i>
             </div>
 
+            <h3>Experienced Documentation Experts</h3>
+
+            <p>
+              Over 40 years of experience in preparing registration documents,
+              legal drafts, agreements, and government forms with complete
+              accuracy.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <h3>Accurate & Trusted</h3>
+
+            <p>
+              Every document is carefully prepared and verified to ensure
+              correctness, clarity, and compliance with legal requirements.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+
+            <h3>Affordable Pricing</h3>
+
+            <p>
+              Transparent and competitive pricing with high-quality service for
+              individuals, businesses, and students.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-language"></i>
+            </div>
+
+            <h3>Tamil & English Support</h3>
+
+            <p>
+              Professional typing, drafting, and document preparation in both
+              Tamil and English.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+
+            <h3>Complete Documentation Solutions</h3>
+
+            <p>
+              Stamp papers, registration documents, affidavits, Xerox, printing,
+              scanning, lamination, and online application services—all under
+              one roof.
+            </p>
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contactbox">
+          <h2>Contact Us</h2>
+          <p><i class="fa-solid fa-phone"></i> +91 9443283859</p>
+          <p><i class="fa-solid fa-envelope"></i> ckskumar1962@gmail.com</p>
+          <p>
+            <a href="https://maps.app.goo.gl/93U7apb4Ng3BZ79z9" target="_blank"
+              ><i class="fa-solid fa-location-dot"></i> Open Google Maps</a
+            >
+          </p>
+          <iframe
+            src="https://www.google.com/maps?q=Tamil%20Nadu&output=embed"
+          ></iframe>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-    © 2026 CKS Documents & Xerox. All Rights Reserved.
-</footer>
-
-<a class="whatsapp"
-   href="https://wa.me/919443283859"
-   target="_blank">
-   💬
-</a>
-
-</body>
+    <footer>© 2026 CKS Documents & Xerox. All Rights Reserved.</footer>
+    <a class="float" href="https://wa.me/919443283859"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+  </body>
 </html>
